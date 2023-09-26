@@ -1,0 +1,14 @@
+class MyComplex:
+    def __init__(self, real, imag):
+        self.real = real
+        self.imag = imag
+
+    def mul(self, other):
+        real = self.real * other.real
+        imag = self.imag * other.imag
+        return MyComplex(real, imag)
+
+c1 = MyComplex(4, 7)
+c2 = MyComplex(-6, 9)
+result = c1.mul(c2)
+print(result.real, result.imag)
