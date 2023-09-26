@@ -12,3 +12,49 @@ c1 = MyComplex(4, 7)
 c2 = MyComplex(-6, 9)
 result = c1.mul(c2)
 print(result.real, result.imag)
+
+class MyComplex:
+    def __init__(self, real, imag):
+        self.real = real
+        self.imag = imag
+
+    def add(self, other):
+        real = self.real + other.real
+        imag = self.imag + other.imag
+        return MyComplex(real, imag)
+
+c1 = MyComplex(3, 8)
+c2 = MyComplex(-1, -5)
+result = c1.add(c2)
+print(result.real, result.imag)
+
+class MyComplex:
+    def __init__(self, real, imag):
+        self.real = real
+        self.imag = imag
+
+    def sub(self, other):
+        real = self.real - other.real
+        imag = self.imag - other.imag
+        return MyComplex(real, imag)
+
+c1 = MyComplex(23, 30)
+c2 = MyComplex(56, -5)
+result = c1.sub(c2)
+print(result.real, result.imag)
+
+class MyComplex:
+    def __init__(self, real, imag):
+        self.real = real
+        self.imag = imag
+
+    def truediv(self, other):
+        real = self.real / other.real
+        imag = self.imag / other.imag
+        return MyComplex(real, imag)
+
+c1 = MyComplex(3, 1)
+c2 = MyComplex(2, 8)
+result = c1.truediv(c2)
+print(result.real, result.imag)
+
