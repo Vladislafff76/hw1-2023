@@ -6,14 +6,24 @@ class Complex:
         return '{} + i*{}'.format(self.real, self.imag)
 
     def __add__(self, other):
-        real = self.real + other.real
-        imag = self.imag + other.imag
-        return Complex(real, imag)
-    
+        if isinstance(other, Complex):
+            real = self.real + other.real
+            imag = self.imag + other.imag
+            return Complex(real, imag)
+        elif isinstance(other, (int, float)):
+            real = self.real + other
+            return Complex(real, self.imag)
+        raise TypeError('unsupported operand +')
+            
     def __mul__(self, other):
-        real = self.real * other.real
-        imag = self.imag * other.imag
-        return Complex(real, imag)
+        if isinstance(other, Complex):
+            real = self.real * other.real
+            imag = self.imag * other.imag
+            return Complex(real, imag)
+        elif isinstance(other, (int, float)):
+            real = self.real * other
+            return Complex(real, self.imag)
+        raise TypeError('unsupported operand *')
     
     def __sub__(self, other):
         real = self.real - other.real
@@ -21,15 +31,28 @@ class Complex:
         return Complex(real, imag)
     
     def __truediv__(self, other):
-        real = self.real / other.real
-        imag = self.imag / other.imag
-        return Complex(real, imag)
+        if isinstance(other, Complex):
+            real = self.real / other.real
+            imag = self.imag / other.imag
+            return Complex(real, imag)
+        elif isinstance(other, (int, float)):
+            real = self.real / other
+            return Complex(real, self.imag)
+        raise TypeError('unsupported operand /')
 
 
 c1 = Complex(-9, 7)
 c2 = Complex(5, 10)
+a = 5
 
 print(c1 + c2)
+print(c1 + [])
+print(c1 + 1)
+print(c1 + 2.6)
+# print(c1+ '2')
 print(c1 * c2)
+print(c1 * 5)
+print(c1 * 6.7)
 print(c1 - c2)
 print(c1 / c2)
+print(c1 / 76)
